@@ -1,0 +1,300 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtvo1vuffr04r"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_7hjl4"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_7hjl4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(648, 308)
+
+[node name="cash" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 241.0
+offset_top = 18.0
+offset_right = 353.0
+offset_bottom = 54.0
+
+[node name="Tiers" type="Node" parent="."]
+
+[node name="tier1" type="Button" parent="Tiers"]
+offset_left = 129.0
+offset_top = 88.0
+offset_right = 480.0
+offset_bottom = 165.0
+
+[node name="buy_tier_1" type="Label" parent="Tiers/tier1"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 215.0
+offset_top = 10.0
+offset_right = 255.0
+offset_bottom = 33.0
+
+[node name="add_tier_1" type="Label" parent="Tiers/tier1"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 39.0
+offset_top = 9.0
+offset_right = 79.0
+offset_bottom = 32.0
+
+[node name="amount_tier_1" type="Label" parent="Tiers/tier1"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 29.0
+offset_top = 45.0
+offset_right = 95.0
+offset_bottom = 68.0
+
+[node name="needed_for_boost_tier_1" type="Label" parent="Tiers/tier1"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 166.0
+offset_top = 46.0
+offset_right = 211.0
+offset_bottom = 69.0
+
+[node name="tier2" type="Button" parent="Tiers"]
+offset_left = 128.0
+offset_top = 280.0
+offset_right = 457.0
+offset_bottom = 321.0
+
+[node name="buy_tier_2" type="Label" parent="Tiers/tier2"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 215.0
+offset_top = 10.0
+offset_right = 255.0
+offset_bottom = 33.0
+
+[node name="add_tier_2" type="Label" parent="Tiers/tier2"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 39.0
+offset_top = 9.0
+offset_right = 79.0
+offset_bottom = 32.0
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="click_boost_timer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
+[node name="save_text_timer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[node name="Boosters" type="Node" parent="."]
+
+[node name="Click" type="Node" parent="Boosters"]
+
+[node name="click_boost" type="Button" parent="Boosters/Click"]
+offset_left = 528.0
+offset_top = 34.0
+offset_right = 685.0
+offset_bottom = 65.0
+metadata/_edit_use_anchors_ = true
+
+[node name="clicks" type="Label" parent="Boosters/Click/click_boost"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 15.0
+offset_top = 3.0
+offset_right = 55.0
+offset_bottom = 26.0
+
+[node name="click_boost_description" type="Label" parent="Boosters/Click/click_boost"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 23.0
+offset_top = 42.0
+offset_right = 292.0
+offset_bottom = 117.0
+theme_override_font_sizes/font_size = 11
+text = "Multiplies total gain  (from all tiers) 
+by 1.0 + (number on click boost /10.0)."
+clip_text = true
+
+[node name="click_boost_description_background" type="ColorRect" parent="Boosters/Click/click_boost/click_boost_description"]
+unique_name_in_owner = true
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_left = -16.0
+offset_top = -6.0
+offset_right = 200.0
+offset_bottom = 34.0
+color = Color(0.243137, 0.243137, 0.243137, 1)
+
+[node name="click_boost_more_clicks" type="Button" parent="Boosters/Click"]
+anchors_preset = -1
+anchor_right = 0.0567708
+offset_left = 558.0
+offset_top = 172.0
+offset_right = 749.0
+offset_bottom = 219.0
+metadata/_edit_use_anchors_ = true
+
+[node name="more_clicks_text" type="Label" parent="Boosters/Click/click_boost_more_clicks"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
+
+[node name="click_boost_more_time" type="Button" parent="Boosters/Click"]
+anchors_preset = -1
+anchor_right = 0.0630208
+offset_left = 555.0
+offset_top = 117.0
+offset_right = 736.0
+offset_bottom = 164.0
+metadata/_edit_use_anchors_ = true
+
+[node name="more_time_text" type="Label" parent="Boosters/Click/click_boost_more_time"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Reset" type="Node" parent="Boosters"]
+
+[node name="reset" type="Button" parent="Boosters/Reset"]
+offset_left = 127.0
+offset_top = 361.0
+offset_right = 472.0
+offset_bottom = 391.0
+
+[node name="count" type="Label" parent="Boosters/Reset/reset"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 5.0
+offset_top = -1.0
+offset_right = 45.0
+offset_bottom = 22.0
+
+[node name="requirements" type="Label" parent="Boosters/Reset/reset"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 156.0
+offset_top = 3.0
+offset_right = 228.0
+offset_bottom = 26.0
+
+[node name="reset_description" type="Label" parent="Boosters/Reset/reset"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 23.0
+offset_top = 42.0
+offset_right = 292.0
+offset_bottom = 117.0
+theme_override_font_sizes/font_size = 11
+text = "Multiplies gain from all tiers separately 
+by producton * (multiplier + 1)  and 
+resets evrything."
+clip_text = true
+
+[node name="reset_description_background" type="ColorRect" parent="Boosters/Reset/reset/reset_description"]
+unique_name_in_owner = true
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_left = -16.0
+offset_top = -6.0
+offset_right = 210.0
+offset_bottom = 55.0
+color = Color(0.243137, 0.243137, 0.243137, 1)
+
+[node name="Save buttons" type="Node" parent="."]
+
+[node name="save_button" type="Button" parent="Save buttons"]
+offset_left = 913.0
+offset_top = 50.0
+offset_right = 1018.0
+offset_bottom = 81.0
+text = "Save"
+
+[node name="save_text" type="Label" parent="Save buttons/save_button"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 128.0
+offset_top = 2.0
+offset_right = 168.0
+offset_bottom = 25.0
+
+[node name="load_button" type="Button" parent="Save buttons"]
+offset_left = 915.0
+offset_top = 96.0
+offset_right = 1020.0
+offset_bottom = 127.0
+text = "Load"
+
+[node name="load_text" type="Label" parent="Save buttons/load_button"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 123.0
+offset_top = 4.0
+offset_right = 235.0
+offset_bottom = 27.0
+
+[node name="delete_button" type="Button" parent="Save buttons"]
+offset_left = 917.0
+offset_top = 136.0
+offset_right = 1024.0
+offset_bottom = 167.0
+text = "Delete data"
+
+[node name="delete_text" type="Label" parent="Save buttons/delete_button"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 121.0
+offset_top = 5.0
+offset_right = 182.0
+offset_bottom = 28.0
+
+[node name="reset_button" type="Button" parent="Save buttons"]
+offset_left = 924.0
+offset_top = 173.0
+offset_right = 1024.0
+offset_bottom = 204.0
+text = "Reset data"
+
+[node name="reset_text" type="Label" parent="Save buttons/reset_button"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 117.0
+offset_top = 4.0
+offset_right = 164.0
+offset_bottom = 27.0
+
+[node name="quit" type="Button" parent="."]
+offset_left = 666.0
+offset_top = 365.0
+offset_right = 784.0
+offset_bottom = 408.0
+text = "Quit"
+
+[connection signal="pressed" from="Tiers/tier1" to="." method="_on_tier_1_pressed"]
+[connection signal="pressed" from="Tiers/tier2" to="." method="_on_tier_2_pressed"]
+[connection signal="timeout" from="Timers/save_text_timer" to="." method="_on_save_text_timer_timeout"]
+[connection signal="mouse_entered" from="Boosters/Click/click_boost" to="." method="_on_click_boost_mouse_entered"]
+[connection signal="mouse_exited" from="Boosters/Click/click_boost" to="." method="_on_click_boost_mouse_exited"]
+[connection signal="pressed" from="Boosters/Click/click_boost" to="." method="_on_click_boost_pressed"]
+[connection signal="pressed" from="Boosters/Click/click_boost_more_clicks" to="." method="_on_click_boost_more_clicks_pressed"]
+[connection signal="pressed" from="Boosters/Click/click_boost_more_time" to="." method="_on_click_boost_more_time_pressed"]
+[connection signal="mouse_entered" from="Boosters/Reset/reset" to="." method="_on_reset_mouse_entered"]
+[connection signal="mouse_exited" from="Boosters/Reset/reset" to="." method="_on_reset_mouse_exited"]
+[connection signal="pressed" from="Boosters/Reset/reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Save buttons/save_button" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Save buttons/load_button" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="Save buttons/delete_button" to="." method="_on_delete_button_pressed"]
+[connection signal="pressed" from="Save buttons/reset_button" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

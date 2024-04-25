@@ -127,9 +127,13 @@ func _process(delta):
 	#tier 2
 	%buy_tier_2.text = str("Cost: ", snapped(buy_tier_2, 0.01))
 	%add_tier_2.text = str("Production: ", snapped(add_tier_2, 0.01))
+	%amount_tier_2.text = str("Amount: ", bought_tier_2)
+	%needed_for_boost_tier_2.text = str("Needed for boost: ", needed_for_boost_tier_2)
 	#reset boost
 	%count.text = str("Amount: ", multiplier_count)
-	%requirements.text = str("Requierd: ", requiered_for_multiplier)
+	%requirements.text = str("Requierd amount of tier 2: ", requiered_for_multiplier)
+	%multiplier.text = str("Multiplier: ", multiplier)
+	%needed_for_another_tier.text = str("Needed for another tier: ")
 	#klik boost
 	%clicks.text = str("Click boost: ", click_boost)
 	%more_clicks_text.text = str("Cost for more clicks: ", needed_cash_for_clicks, "\n Amount of clicks: ",click_max )
@@ -137,10 +141,12 @@ func _process(delta):
 	if %click_boost_timer.time_left == 0 and click_boost > 0:
 		click_boost -= 1
 		%click_boost_timer.start()
-	if click_boost>0:
-		add_full *= 1.0 + (click_boost/10.0)
 	if click_boost >= click_max:
 		click_boost = click_max
+	if click_boost>0:
+		add_full *= 1.0 + (click_boost/10.0)
+	print(add_full)
+	%add_full.text = str("Ink you produce: ", snapped(add_full, 0.01))
 
 #tiery
 func _on_tier_1_pressed():
@@ -148,7 +154,7 @@ func _on_tier_1_pressed():
 	if cash >= buy_tier_1:
 		add_tier_1 += 0.01 * (multiplier + 1)
 		cash -= buy_tier_1
-		buy_tier_1 *= 2
+		buy_tier_1 *= 1.5
 		bought_tier_1 += 1
 	#co 10 podwaja ilość zdobywanej money
 	if bought_tier_1 == needed_for_boost_tier_1:
@@ -161,7 +167,7 @@ func _on_tier_2_pressed():
 	if cash >= buy_tier_2:
 		add_tier_2 += 0.05 * (multiplier + 1)
 		cash -= buy_tier_2
-		buy_tier_2 *= 2
+		buy_tier_2 *= 1.5
 		bought_tier_2 += 1
 	#co 10 podwaja ilość zdobywanej money
 	if bought_tier_2 == needed_for_boost_tier_2:
@@ -216,11 +222,12 @@ func _on_click_boost_more_clicks_pressed():
 
 func _on_click_boost_more_time_pressed():
 	if cash >= needed_cash_for_time:
-		%click_boost_timer.wait_time += 0.01
+		%click_boost_timer.wait_time += 0.1
 		cash -= needed_cash_for_time
 		needed_cash_for_time *= 2
-		time_between_clicks += 0.01 
+		time_between_clicks += 0.1 
 
 #quit
 func _on_quit_pressed():
 	get_tree().quit()
+

@@ -1,19 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtvo1vuffr04r"]
+[gd_scene load_steps=5 format=3 uid="uid://dtvo1vuffr04r"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_6cbpn"]
+[ext_resource type="Script" path="res://Code/main.gd" id="1_6cbpn"]
+[ext_resource type="AudioStream" uid="uid://b2gsxxijua3nr" path="res://Music/InkBD-song-1.wav" id="2_8mwsc"]
+[ext_resource type="Script" path="res://Code/music_manager.gd" id="2_8no3w"]
+[ext_resource type="AudioStream" uid="uid://bdnxi6hsbvtcc" path="res://Music/Kapy-song-1.wav" id="4_0jrw2"]
 
 [node name="main_area" type="Node2D"]
 script = ExtResource("1_6cbpn")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Cameras" type="Node" parent="."]
+
+[node name="windows" type="Camera2D" parent="Cameras"]
 position = Vector2(648, 308)
 
 [node name="add_full" type="Label" parent="."]
 unique_name_in_owner = true
-offset_left = 25.0
-offset_top = 11.0
-offset_right = 65.0
-offset_bottom = 34.0
+offset_left = 230.0
+offset_top = -19.0
+offset_right = 270.0
+offset_bottom = 4.0
 
 [node name="cash" type="Label" parent="."]
 unique_name_in_owner = true
@@ -258,7 +263,7 @@ offset_bottom = 69.0
 
 [node name="tier7" type="Button" parent="Tiers"]
 visible = false
-offset_left = 130.0
+offset_left = 129.0
 offset_top = 598.0
 offset_right = 481.0
 offset_bottom = 675.0
@@ -409,17 +414,17 @@ offset_bottom = 24.0
 [node name="multiplier" type="Label" parent="Boosters/Reset/reset"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1.0
-offset_top = 40.0
-offset_right = 41.0
-offset_bottom = 63.0
+offset_left = 5.0
+offset_top = 22.0
+offset_right = 45.0
+offset_bottom = 45.0
 
 [node name="needed_for_another_tier" type="Label" parent="Boosters/Reset/reset"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 117.0
+offset_left = 5.0
 offset_top = 42.0
-offset_right = 157.0
+offset_right = 45.0
 offset_bottom = 65.0
 
 [node name="reset_description" type="Label" parent="Boosters/Reset/reset"]
@@ -432,8 +437,8 @@ offset_right = 297.0
 offset_bottom = 175.0
 theme_override_font_sizes/font_size = 11
 text = "Multiplies gain from all tiers separately 
-by producton * (multiplier + 1)  and 
-resets evrything."
+by producton * (multiplier ^ amount)  
+and resets evrything."
 clip_text = true
 
 [node name="reset_description_background" type="ColorRect" parent="Boosters/Reset/reset/reset_description"]
@@ -447,32 +452,98 @@ offset_right = 210.0
 offset_bottom = 55.0
 color = Color(0.243137, 0.243137, 0.243137, 1)
 
+[node name="Music" type="Node" parent="."]
+script = ExtResource("2_8no3w")
+
+[node name="Music menu" type="Node" parent="Music"]
+
+[node name="music_menu_button" type="Button" parent="Music/Music menu"]
+offset_left = 1210.0
+offset_top = 34.0
+offset_right = 1297.0
+offset_bottom = 65.0
+text = "Music"
+
+[node name="change_music_button" type="Button" parent="Music/Music menu"]
+unique_name_in_owner = true
+visible = false
+offset_left = 1196.0
+offset_top = 74.0
+offset_right = 1312.0
+offset_bottom = 105.0
+text = "Change music
+"
+
+[node name="disable_music_button" type="Button" parent="Music/Music menu"]
+unique_name_in_owner = true
+visible = false
+offset_left = 1196.0
+offset_top = 113.0
+offset_right = 1312.0
+offset_bottom = 144.0
+text = "Disable music"
+
+[node name="now_playing" type="Label" parent="Music/Music menu"]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_right = 0.021
+anchor_bottom = 0.021
+offset_left = 1162.0
+offset_top = 6.0
+offset_right = 1161.68
+offset_bottom = 6.32
+
+[node name="Players" type="Node" parent="Music"]
+
+[node name="gs1" type="AudioStreamPlayer" parent="Music/Players"]
+unique_name_in_owner = true
+stream = ExtResource("2_8mwsc")
+
+[node name="gs2" type="AudioStreamPlayer" parent="Music/Players"]
+unique_name_in_owner = true
+stream = ExtResource("4_0jrw2")
+
+[node name="gs3" type="AudioStreamPlayer" parent="Music/Players"]
+unique_name_in_owner = true
+stream = ExtResource("4_0jrw2")
+
+[node name="volume_slider" type="HSlider" parent="Music"]
+offset_left = 1332.0
+offset_top = 39.0
+offset_right = 1531.0
+offset_bottom = 55.0
+min_value = -30.0
+max_value = 0.0
+
 [node name="Menu" type="Node" parent="."]
 
 [node name="menu" type="Button" parent="Menu"]
-offset_left = 1005.0
-offset_top = 59.0
-offset_right = 1100.0
-offset_bottom = 90.0
+offset_left = 1046.0
+offset_top = 34.0
+offset_right = 1141.0
+offset_bottom = 65.0
 text = "Menu"
+metadata/_edit_use_anchors_ = true
 
 [node name="quit" type="Button" parent="Menu"]
 visible = false
-offset_left = 1006.0
-offset_top = 288.0
-offset_right = 1124.0
-offset_bottom = 331.0
+offset_left = 1041.0
+offset_top = 271.0
+offset_right = 1159.0
+offset_bottom = 314.0
 text = "Quit"
+metadata/_edit_use_anchors_ = true
 
 [node name="Save buttons" type="Node" parent="Menu"]
 
 [node name="save_button" type="Button" parent="Menu/Save buttons"]
 visible = false
-offset_left = 1004.0
-offset_top = 117.0
-offset_right = 1109.0
-offset_bottom = 148.0
+offset_left = 1045.0
+offset_top = 92.0
+offset_right = 1150.0
+offset_bottom = 123.0
 text = "Save"
+metadata/_edit_use_anchors_ = true
 
 [node name="save_text" type="Label" parent="Menu/Save buttons/save_button"]
 unique_name_in_owner = true
@@ -481,14 +552,16 @@ offset_left = 128.0
 offset_top = 2.0
 offset_right = 168.0
 offset_bottom = 25.0
+metadata/_edit_use_anchors_ = true
 
 [node name="load_button" type="Button" parent="Menu/Save buttons"]
 visible = false
-offset_left = 1006.0
-offset_top = 163.0
-offset_right = 1111.0
-offset_bottom = 194.0
+offset_left = 1047.0
+offset_top = 138.0
+offset_right = 1152.0
+offset_bottom = 169.0
 text = "Load"
+metadata/_edit_use_anchors_ = true
 
 [node name="load_text" type="Label" parent="Menu/Save buttons/load_button"]
 unique_name_in_owner = true
@@ -497,14 +570,16 @@ offset_left = 123.0
 offset_top = 4.0
 offset_right = 235.0
 offset_bottom = 27.0
+metadata/_edit_use_anchors_ = true
 
 [node name="delete_button" type="Button" parent="Menu/Save buttons"]
 visible = false
-offset_left = 1004.0
-offset_top = 210.0
-offset_right = 1111.0
-offset_bottom = 241.0
+offset_left = 1045.0
+offset_top = 185.0
+offset_right = 1152.0
+offset_bottom = 216.0
 text = "Delete data"
+metadata/_edit_use_anchors_ = true
 
 [node name="delete_text" type="Label" parent="Menu/Save buttons/delete_button"]
 unique_name_in_owner = true
@@ -513,14 +588,16 @@ offset_left = 121.0
 offset_top = 5.0
 offset_right = 182.0
 offset_bottom = 28.0
+metadata/_edit_use_anchors_ = true
 
 [node name="reset_button" type="Button" parent="Menu/Save buttons"]
 visible = false
-offset_left = 1005.0
-offset_top = 248.0
-offset_right = 1105.0
-offset_bottom = 279.0
+offset_left = 1046.0
+offset_top = 223.0
+offset_right = 1146.0
+offset_bottom = 254.0
 text = "Reset data"
+metadata/_edit_use_anchors_ = true
 
 [node name="reset_text" type="Label" parent="Menu/Save buttons/reset_button"]
 unique_name_in_owner = true
@@ -529,6 +606,7 @@ offset_left = 117.0
 offset_top = 4.0
 offset_right = 164.0
 offset_bottom = 27.0
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Tiers/tier1" to="." method="_on_tier_1_pressed"]
 [connection signal="pressed" from="Tiers/tier2" to="." method="_on_tier_2_pressed"]
@@ -546,6 +624,11 @@ offset_bottom = 27.0
 [connection signal="mouse_entered" from="Boosters/Reset/reset" to="." method="_on_reset_mouse_entered"]
 [connection signal="mouse_exited" from="Boosters/Reset/reset" to="." method="_on_reset_mouse_exited"]
 [connection signal="pressed" from="Boosters/Reset/reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Music/Music menu/music_menu_button" to="Music" method="_on_music_menu_button_pressed"]
+[connection signal="pressed" from="Music/Music menu/change_music_button" to="Music" method="_on_change_music_button_pressed"]
+[connection signal="pressed" from="Music/Music menu/disable_music_button" to="Music" method="_on_disable_music_pressed"]
+[connection signal="changed" from="Music/volume_slider" to="Music" method="_on_volume_slider_changed"]
+[connection signal="value_changed" from="Music/volume_slider" to="Music" method="_on_volume_slider_value_changed"]
 [connection signal="pressed" from="Menu/menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Menu/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Menu/Save buttons/save_button" to="." method="_on_save_button_pressed"]

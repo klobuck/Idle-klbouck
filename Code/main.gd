@@ -214,6 +214,7 @@ func _on_reset_button_pressed():
 	bought_tier_1 = 0
 	needed_for_boost_tier_1 = 10 
 	add_tier_2 = 0.00
+<<<<<<< HEAD
 	buy_tier_2 = 30
 	bought_tier_2 = 0
 	needed_for_boost_tier_2 = 10
@@ -235,6 +236,29 @@ func _on_reset_button_pressed():
 	needed_for_boost_tier_6 = 10
 	add_tier_7 = 0.00
 	buy_tier_7 = 729000
+=======
+	buy_tier_2 = 50
+	bought_tier_2 = 0
+	needed_for_boost_tier_2 = 10
+	add_tier_3 = 0.00
+	buy_tier_3 = 100
+	bought_tier_3 = 0
+	needed_for_boost_tier_3 = 10
+	add_tier_4 = 0.00
+	buy_tier_4 = 500
+	bought_tier_4 = 0
+	needed_for_boost_tier_4 = 10
+	add_tier_5 = 0.00
+	buy_tier_5 = 1000
+	bought_tier_5 = 0
+	needed_for_boost_tier_5 = 10
+	add_tier_6 = 0.00
+	buy_tier_6 = 5000
+	bought_tier_6 = 0
+	needed_for_boost_tier_6 = 10
+	add_tier_7 = 0.00
+	buy_tier_7 = 10000
+>>>>>>> origin/main
 	bought_tier_7 = 0
 	needed_for_boost_tier_7 = 10
 	%reset_text.text = str("Data reseted successfully.")
@@ -369,7 +393,11 @@ func _on_tier_2_pressed():
 func _on_tier_3_pressed():
 		#jak za mało kasy to nie kupisz
 	if cash >= buy_tier_3 and needed_for_reset >= 2:
+<<<<<<< HEAD
 		add_tier_3 += 0.25 * pow(multiplier,multiplier_count)
+=======
+		add_tier_3 += 0.1 * pow(multiplier,multiplier_count)
+>>>>>>> origin/main
 		cash -= buy_tier_3
 		buy_tier_3 *= 1.25
 		bought_tier_3 += 1
@@ -381,7 +409,11 @@ func _on_tier_3_pressed():
 func _on_tier_4_pressed():
 		#jak za mało kasy to nie kupisz
 	if cash >= buy_tier_4 and needed_for_reset >= 3:
+<<<<<<< HEAD
 		add_tier_4  += 1.25 * pow(multiplier,multiplier_count)
+=======
+		add_tier_4  += 0.5 * pow(multiplier,multiplier_count)
+>>>>>>> origin/main
 		cash -= buy_tier_4 
 		buy_tier_4  *= 1.25
 		bought_tier_4  += 1
@@ -393,7 +425,11 @@ func _on_tier_4_pressed():
 func _on_tier_5_pressed():
 		#jak za mało kasy to nie kupisz
 	if cash >= buy_tier_5 and needed_for_reset >= 4:
+<<<<<<< HEAD
 		add_tier_5 += 6.25 * pow(multiplier,multiplier_count)
+=======
+		add_tier_5 += 1 * pow(multiplier,multiplier_count)
+>>>>>>> origin/main
 		cash -= buy_tier_5
 		buy_tier_5 *= 1.25
 		bought_tier_5 += 1
@@ -405,7 +441,11 @@ func _on_tier_5_pressed():
 func _on_tier_6_pressed():
 		#jak za mało kasy to nie kupisz
 	if cash >= buy_tier_6 and needed_for_reset >= 5:
+<<<<<<< HEAD
 		add_tier_6 += 31.25 * pow(multiplier,multiplier_count)
+=======
+		add_tier_6 += 5 * pow(multiplier,multiplier_count)
+>>>>>>> origin/main
 		cash -= buy_tier_6
 		buy_tier_6 *= 1.25
 		bought_tier_6 += 1
@@ -417,7 +457,11 @@ func _on_tier_6_pressed():
 func _on_tier_7_pressed():
 		#jak za mało kasy to nie kupisz
 	if cash >= buy_tier_7 and needed_for_reset >= 6:
+<<<<<<< HEAD
 		add_tier_7 += 156.25 * pow(multiplier,multiplier_count)
+=======
+		add_tier_7 += 10 * pow(multiplier,multiplier_count)
+>>>>>>> origin/main
 		cash -= buy_tier_7
 		buy_tier_7 *= 1.25
 		bought_tier_7 += 1
